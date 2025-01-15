@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker - Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #818cf8;
+            --background-color: #f3f4f6;
+            --card-background: #ffffff;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --success-color: #10b981;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: var(--card-background) !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+        }
+
+        .register-container {
+            display: flex;
+            min-height: calc(100vh - 76px);
+            padding: 2rem 0;
+        }
+
+        .benefits-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem;
+            border-radius: 1rem 0 0 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .benefits-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateX(10px);
+        }
+
+        .benefit-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .benefit-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .benefit-description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .register-form-section {
+            background: var(--card-background);
+            padding: 3rem;
+            border-radius: 0 1rem 1rem 0;
+        }
+
+        .register-form-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-title {
+            color: var(--text-primary);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .form-control {
+            border: 1px solid #e5e7eb;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+        }
+
+        .input-group-text {
+            background-color: transparent;
+            border-right: none;
+        }
+
+        .form-control {
+            border-left: none;
+        }
+
+        .btn-register {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .btn-register:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .login-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .login-link:hover {
+            text-decoration: underline;
+        }
+
+        .alert-success {
+            background-color: var(--success-color);
+            border: none;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        @media (max-width: 992px) {
+            .register-container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .benefits-section, .register-form-section {
+                border-radius: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .benefits-section {
+                padding: 2rem;
+            }
+
+            .register-form-section {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-wallet mr-2"></i>
+            Expense Tracker
+        </a>
+    </div>
+</nav>
+
+<div class="container register-container">
+    <div class="row g-0 w-100 shadow-lg">
+        <div class="col-lg-6">
+            <div class="benefits-section">
+                <h2>Start Your Financial Journey</h2>
+
+                <div class="benefit-item">
+                    <div class="benefit-header">
+                        <i class="fas fa-chart-pie benefit-icon"></i>
+                        <div class="benefit-title">Smart Analytics</div>
+                    </div>
+                    <div class="benefit-description">
+                        Get detailed insights into your spending patterns with interactive charts and reports
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-header">
+                        <i class="fas fa-bullseye benefit-icon"></i>
+                        <div class="benefit-title">Budget Goals</div>
+                    </div>
+                    <div class="benefit-description">
+                        Set and track your financial goals with our intuitive budgeting tools
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-header">
+                        <i class="fas fa-bell benefit-icon"></i>
+                        <div class="benefit-title">Smart Notifications</div>
+                    </div>
+                    <div class="benefit-description">
+                        Get alerts for unusual spending and when you're approaching budget limits
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-header">
+                        <i class="fas fa-cloud benefit-icon"></i>
+                        <div class="benefit-title">Cloud Sync</div>
+                    </div>
+                    <div class="benefit-description">
+                        Access your financial data securely from any device, anytime, anywhere
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="register-form-section">
+                <div class="register-form-container">
+                    <h1 class="form-title">Create Your Account</h1>
+
+                    <div th:if="${param.exito}" class="alert alert-success mb-4">
+                        <i class="fas fa-check-circle me-2"></i>
+                        Your account has been created successfully!
+                    </div>
+
+                    <form th:action="@{/registro}" method="post" th:object="${usuario}">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">First Name</label>
+                            <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                <input type="text" class="form-control" id="nombre" th:field="*{nombre}"
+                                       required autofocus placeholder="Enter your first name">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="apellido" class="form-label">Last Name</label>
+                            <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                <input type="text" class="form-control" id="apellido" th:field="*{apellido}"
+                                       required placeholder="Enter your last name">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-envelope"></i>
+                                    </span>
+                                <input type="email" class="form-control" id="email" th:field="*{email}"
+                                       required placeholder="Enter your email">
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="password" class="form-label">Password</label>
+                            <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                <input type="password" class="form-control" id="password" th:field="*{password}"
+                                       required placeholder="Create a password">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-register btn-primary mb-4">
+                            <i class="fas fa-user-plus me-2"></i>
+                            Create Account
+                        </button>
+
+                        <div class="text-center">
+                            <p class="mb-0">Already have an account?</p>
+                            <a th:href="@{/login}" class="login-link">
+                                Sign in here
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
